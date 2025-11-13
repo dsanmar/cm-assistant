@@ -1,0 +1,12 @@
+"Calculations.  Calculate the permeability of each sample using the following equation:","","","",""
+"","","","h1",""
+"","L T
+K =   (",")  x  [ln (","",")]  x (7200)"
+"","","","h2",""
+"Where:","","","",""
+"K =  Falling head permeability (feet/day).","","","",""
+"L =  Height of compacted ASDC specimen.","","","",""
+"","T =  Time in seconds for water level to fall from first timing mark to second timing mark.","","",""
+"","h1 = Distance in inches from first timing mark to bottom of specimen.","","",""
+"","h2 = Distance in inches from second timing mark to bottom of specimen.","","",""
+"ln =  Natural logarithm.","","","",""

@@ -1,0 +1,94 @@
+"","Table S-1-2  Initial Tension Requirements"
+"","Bolt Size 
+1/2 
+5/8 
+3/4 
+7/8 
+1 
+1 1/8 
+1 1/4 
+1 3/8 
+1 1/2"
+"","Minimum Initial Tension, kips 
+12 
+19 
+28 
+39 
+51 
+56 
+71 
+85 
+103"
+"","6. 
+Further tighten the bolt to the rotation listed in Table S-1-3.  Measure rotation from the match mark in Step 4."
+"","Record the bolt’s final tension as indicated on the calibrator.  If an assembly fails by stripping or fracturing"
+"","before reaching the rotation listed in Table S-1-3, the assembly fails the test."
+"","Table S-1-3  Required Rotation"
+"","Rotation 
+Bolt Length"
+"","240 degrees (2/3 turn) 
+≤ 4 diameters"
+"","360 degrees (1 turn) 
+> 4 diameters and ≤ 8 diameters"
+"","480 degrees (1 1/3 turns) 
+> 8 diameters"
+"","7. 
+The final bolt tension measured in Step 6 must equal or exceed the value in Table S-1-4.  Assemblies that do"
+"","not meet this tension fail the test."
+"","Table S-1-4  Final Tension Requirements"
+"","Bolt Size 
+1/2 
+5/8 
+3/4 
+7/8 
+1 
+1 1/8 
+1 1/4 
+1 3/8 
+1 1/2"
+"","Minimum Final Tension, kips 
+14 
+22 
+32 
+45 
+59 
+64 
+82 
+98 
+118"
+"","8. 
+Loosen the assembly and remove nut to examine the threads on the nut and bolt.  Check for signs of thread"
+"","shear failure, stripping, or torsional failure of the nut and bolt.  Assemblies that have evidence of thread shear,"
+"","stripping, or torsional distress fail the test."
+"D.","Calculations.  Calculate the maximum allowable torque in foot-pounds as follows:"
+"","Maximum Allowable Torque = 0.25 × P × D"
+"","Where:"
+"","P =  Measured initial tension in pounds"
+"","D =  Bolt diameter in feet"
+"","Compare the torque as measured in Step 5 to the maximum allowable torque.  If the measured torque is greater than"
+"","the maximum allowable torque, the assembly fails the test."
+"E.","Report.  Report the following:"
+"","1. 
+Size, manufacturer and lot number for the bolt assembly."
+"","2. 
+Measured initial tension and torque."
+"","3. 
+Measured final tension and torque."
+"","4. 
+Observations of the thread condition."
+"","5. 
+Pass/Fail status of the bolt assembly."
+"","NJDOT S-2 – ROTATIONAL-CAPACITY TEST ON BOLTS TOO SHORT TO FIT"
+"","TENSION CALIBRATOR"
+"A.","Scope.   This  test  method  is  used  for  determination  of  high-strength  steel  bolt  assembly  acceptance  for  rotational"
+"","capacity for bolt assemblies that are too short to fit in a tension calibrator.  Use NJDOT S-1 for bolts that are long"
+"","enough to fit in the tension calibrator."
+"B.","Apparatus.  Use the following apparatus:"
+"","1. 
+Calibrated torque wrench and spud wrench or equivalent."
+"","2. 
+Spacers and/or washers with hole-size no larger than 1/16 inch greater than bolt to be tested."
+"","3. 
+Steel section with normal size hole to install bolt.  Any available splice hole can be used with a plate thickness"
+"","that will provide the number of threads under the nut required in Step 1 of the procedure."
+"","571"

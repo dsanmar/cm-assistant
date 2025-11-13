@@ -1,0 +1,9 @@
+# Ignore manual PDF files
+data/*.pdf
+
+# Ignore python env
+.venv/
+__pycache__/
+
+# VS Code
+.vscode/

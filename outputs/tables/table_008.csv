@@ -1,0 +1,55 @@
+"","9. 
+If the air void content of all of the cores in the lot as calculated in Step 7 fall inside of the comparison limits as"
+"","determined in Step 4, use the air void contents for the individual cores as determined in Step 7."
+"","10. 
+If the lot has an outlier or is a recore lot, the entire lot must be tested for maximum specific gravity.  Calculate"
+"","air voids using each individual core maximum specific and bulk specific gravity."
+"C.","Calculations.  Calculate the air voids for each core as follows:"
+"","A − B"
+"","Air Voids =  
+ x 100"
+"","A"
+"","Where:"
+"","A =  Maximum Specific Gravity"
+"","B =  Bulk Specific Gravity"
+"D.","Report.  Report the air void content for each core to the nearest 0.1 percent."
+"","NJDOT B-4 – MEASURING THICKNESS OF HMA CORES"
+"A.","Scope.  This test method is used to measure the individual lift thicknesses of drilled HMA cores."
+"B.","Apparatus.  Use the following apparatus:"
+"","1. 
+Caliper device to measure the axial lengths of individual lifts to the nearest 0.001 inch mounted on a support."
+"","2. 
+Support  designed  to  hold  the  specimen  with  its  axis  in  a  horizontal  position  by  2  metal  roller  bearings"
+"","sufficiently rigid and stable to maintain alignment without distortion or deflection."
+"","3. 
+Gauge to calibrate and check the zero reference point of the apparatus."
+"","Ensure that the apparatus accommodates specimens from 1/2 to 12 inches in length."
+"C.","Procedure.  Perform the following steps:"
+"","1. 
+If the caliper device is electronic, turn it on.  Ensure that the caliper device is zeroed and set to the correct units"
+"","of measure."
+"","2. 
+Place the specimen in the measuring apparatus with the smooth end of the core, which is the top or upper surface"
+"","of the pavement, firmly against the zero reference point."
+"","3. 
+Take 4 length measurements approximately 90 degrees apart around the circumference of the specimen using"
+"","the caliper device to measure the distance from the zero reference point (top of the core) to the bottom of the"
+"","first lift.  If a measuring point is not representative of the plane of the core lift because of a small projection or"
+"","depression, rotate the specimen slightly about its axis and take the measurement at the nearest representative"
+"","point."
+"","4. 
+Read  each  of  the  4  measurements  for  the  lift  to  the  nearest  0.001  inch.    Calculate  the  average  of  the  4"
+"","measurements for the lift to the nearest 0.01 inch and record."
+"","5. 
+Repeat Steps 3 and 4 for each lift to be measured by measuring from the zero reference point (top of the core)"
+"","to the bottom of the lift being measured."
+"D.","Report.  Report the following to the nearest 0.01 inch:"
+"","1. 
+Average thickness of the first lift, which is the average distance for the first lift as determined in Step 4."
+"","2. 
+Average thickness of the second lift, which is determined by subtracting the average thickness for the first lift"
+"","from the distance measured in Step 4 for the second lift."
+"","3. 
+Average  thickness  of  subsequent  lifts,  which  is  determined  by  subtracting  the  average  thicknesses  for  all"
+"","preceding lifts from the average distance measured in Step 4 for the lift."
+"","550"

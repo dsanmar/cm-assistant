@@ -1,0 +1,64 @@
+"","rm = 
+average measured inner radius"
+"","tm = 
+average measured thickness"
+"","wm= 
+average measured width"
+"D.","Installation and Testing."
+"","1. 
+Fixture and Specimen Installation:  Install fixtures in the testing machines so that they are aligned vertically"
+"","and horizontally.  Install specimens in the fixtures so that loading points are contacted."
+"","2. 
+Test Speed:  Ensure a maximum test speed of 0.01 in/min."
+"E.","Calculations.  Calculate the flexural modulus for the ring specimens in tension using the following equation:"
+"","Rm"
+"","3 I
+E = 0.148m"
+"","W
+here:"
+"","E = 
+elastic flexural modulus"
+"","tm"
+"","Rm=rm +"
+"","2"
+"","wmtm"
+"","I ="
+"","12"
+"","m
+ = 
+slope of initial linear portion of the load-deflection curve"
+"F.","Report.  Report the flexural modulus for the ring specimens in tension."
+"","NJDOT R-1 – DETERMINING RIDE QUALITY OF PAVEMENT SURFACES"
+"A.","Scope.  This test method is used to determine the ride quality of a pavement surface using a Class 1 Inertial Profiler"
+"","System  (IPS).    If  any  part  of  this  test  procedure  is  in  conflict  with  the  referenced  documents,  such  as  ASTM  or"
+"","AASHTO standards, this test procedure takes precedence for its purpose."
+"B.","Apparatus.  Use the following apparatus:"
+"","1. 
+Class 1 IPS that meets the requirements of ASTM E 950, Sections 4.0, 5.0, and 6.0 of AASHTO M 328, and"
+"","the following:"
+"","a. 
+Valid certification approved by the Department."
+"","b. 
+The data system provides the raw profile data in an ASCII format acceptable to the Department."
+"","c. 
+Current version of ROADRUF, ProVal, or other Department approved pavement profile analysis software"
+"","installed on the IPS computer to compute the IRI.  Obtain approval prior to performing ride quality testing."
+"","2. 
+Base plate and gauge blocks, of 1 inch and 2 inch thickness, provided by the manufacturer to verify daily vertical"
+"","calibration."
+"","3. 
+Retroreflective traffic marking tape or other approved mechanism to automatically trigger the start and stop of"
+"","profile measurements."
+"C.","Procedure.  Perform the following steps:"
+"","1. 
+Turn  on  the  inertial  profiler  and  warm  up  all  electronic  equipment  in  accordance  with  the  manufacturer"
+"","recommendations in advance of testing."
+"","2. 
+Perform Block and Bounce tests each day prior to collecting data.  Record the results in the calibration log."
+"","Ensure tolerances are within the certified limits."
+"","3. 
+Ensure retroreflective traffic marking tape or other approved mechanism is placed at the beginning and end of"
+"","each direction of travel lane."
+"","4. 
+Enter Project information in the system."
+"","569"
