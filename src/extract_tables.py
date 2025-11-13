@@ -6,8 +6,7 @@ import camelot
 from pathlib import Path
 from tqdm import tqdm
 
-# Project paths
-ROOT = Path(__file__).resolve().parents[1]
+
 PDF_PATH = Path("../data/Standard Specifications for Road and Bridge Construction 2019 ORIGINAL.pdf")
 OUT_DIR = Path("../outputs/tables")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
