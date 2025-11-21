@@ -1,5 +1,8 @@
-pymupdf==1.24.9
-camelot-py[cv]==0.11.0
-opencv-python-headless==4.8.1.78
-regex==2024.5.15
-tqdm==4.66.5
+pymupdf==1.24.9           # PDF text extraction (fitz)
+tqdm==4.66.5              # progress bars
+
+sentence-transformers==3.0.1
+faiss-cpu==1.8.0
+
+requests==2.32.3          # to call the Ollama HTTP API
+rich 

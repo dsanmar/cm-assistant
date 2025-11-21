@@ -1,9 +1,35 @@
-# Ignore manual PDF files
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---- Virtual Env ----
+.venv/
+venv/
+env/
+
+# ---- Output Files (DO NOT COMMIT) ----
+outputs/pages.jsonl
+outputs/sections.jsonl
+outputs/spec_metadata.jsonl
+outputs/spec_index.faiss
+outputs/tables/
+outputs/*.csv
+
+# ---- Raw Data (DO NOT COMMIT) ----
 data/*.pdf
 
-# Ignore python env
-.venv/
-__pycache__/
+# ---- MacOS junk ----
+.DS_Store
+*.DS_Store
 
-# VS Code
+# ---- IDE files ----
 .vscode/
+.idea/
+
+# ---- Logs ----
+*.log
+
+# ---- Ollama (if needed later) ----
+ollama/
