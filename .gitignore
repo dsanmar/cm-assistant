@@ -1,9 +1,17 @@
-# Ignore manual PDF files
-data/*.pdf
+# ---- Virtual Env ----
+.venv311/
 
-# Ignore python env
-.venv/
-__pycache__/
+# ---- Output & Data (DO NOT COMMIT) ----
+outputs/
+data/
 
-# VS Code
+# ---- MacOS junk ----
+.DS_Store
+*.DS_Store
+
+# ---- IDE files ----
 .vscode/
+.idea/
+
+# ---- Logs ----
+*.log
