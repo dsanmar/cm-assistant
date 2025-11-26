@@ -5,9 +5,7 @@ __pycache__/
 *.pyd
 
 # ---- Virtual Env ----
-.venv/
-venv/
-env/
+.venv311/
 
 # ---- Output Files (DO NOT COMMIT) ----
 outputs/pages.jsonl
@@ -31,5 +29,5 @@ data/*.pdf
 # ---- Logs ----
 *.log
 
-# ---- Ollama (if needed later) ----
+# ---- Ollama ----
 ollama/
