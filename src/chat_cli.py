@@ -10,7 +10,7 @@ Usage:
 
 Prereqs:
     - Ollama installed and server running:
-        brew services start ollama
+        brew services start ollama∆
     - Model pulled:
         ollama pull llama3.1
 """
@@ -42,7 +42,6 @@ print(f"[info] Loaded {len(metadata)} chunks.")
 
 # -----------------------------
 # Load embedding model
-# (must match build_index.py)
 # -----------------------------
 print("[info] Loading embedding model (all-MiniLM-L6-v2) ...")
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")
