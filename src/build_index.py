@@ -1,14 +1,25 @@
 """
 build_index.py
 --------------
-Builds a vector index for ALL sections of the 2019 NJDOT Standard Specifications.
+Builds FAISS index + metadata for the NJDOT 2019 Standard Specs,
+using precomputed sections from outputs/sections.jsonl.
 
 Input:
-    outputs/sections.jsonl
+    outputs/sections.jsonl  (from extract_sections.py)
 
 Outputs:
     outputs/spec_index.faiss
     outputs/spec_metadata.jsonl
+
+Each line in spec_metadata.jsonl:
+    {
+        "id": <int>,              # index in FAISS
+        "section_id": "401.03(A)",
+        "page_start": 123,
+        "page_end": 125,
+        "text": "chunk text",
+        "n_tokens": 180
+    }
 """
 
 from pathlib import Path
@@ -17,97 +28,105 @@ from typing import List, Dict
 
 import numpy as np
 import faiss
-from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
+from embeddings import embed_text
+
+# src/ → project root
 ROOT = Path(__file__).resolve().parents[1]
 SECTIONS_PATH = ROOT / "outputs" / "sections.jsonl"
-
 INDEX_PATH = ROOT / "outputs" / "spec_index.faiss"
 META_PATH = ROOT / "outputs" / "spec_metadata.jsonl"
+
+# Rough “token” size: we just treat whitespace-separated words as tokens
+MAX_TOKENS = 256       # target size of each chunk
+OVERLAP_TOKENS = 50    # overlap between chunks for context
 
 
 def load_sections() -> List[Dict]:
     sections = []
     with open(SECTIONS_PATH, "r", encoding="utf-8") as f:
         for line in f:
-            sections.append(json.loads(line))
+            if line.strip():
+                sections.append(json.loads(line))
     return sections
 
 
-def simple_chunk(text: str, max_chars: int = 1200, overlap: int = 200):
+def split_into_chunks(text: str) -> List[str]:
     """
-    Very simple character-based chunker with overlap.
-
-
+    Split text into overlapping chunks by word count to keep
+    each chunk roughly <= MAX_TOKENS.
     """
-    text = text.strip()
-    if not text:
-        return
+    tokens = text.split()
+    if not tokens:
+        return []
 
-    if len(text) <= max_chars:
-        yield text
-        return
-
+    chunks = []
     start = 0
-    while start < len(text):
-        end = start + max_chars
-        chunk = text[start:end]
-        yield chunk.strip()
-        start = end - overlap
+    n = len(tokens)
+
+    while start < n:
+        end = min(start + MAX_TOKENS, n)
+        chunk_tokens = tokens[start:end]
+        chunk = " ".join(chunk_tokens).strip()
+        if chunk:
+            chunks.append(chunk)
+        if end == n:
+            break
+        # move start forward with overlap
+        start = end - OVERLAP_TOKENS
+
+    return chunks
 
 
-def build_index():
-    print(f"[info] Loading sections from {SECTIONS_PATH}")
+def main():
     sections = load_sections()
-    print(f"[info] Total sections found: {len(sections)}")
+    print(f"[info] Loaded {len(sections)} sections from {SECTIONS_PATH}")
 
-    documents: List[Dict] = []
-    for sec in sections:
-        sec_id = sec.get("section_id", "UNKNOWN")
+    vectors = []
+    metadata = []
+    idx = 0
+
+    for sec in tqdm(sections, desc="Chunking + embedding"):
+        section_id = sec.get("section_id")
         page_start = sec.get("page_start")
         page_end = sec.get("page_end")
         text = sec.get("text", "")
 
-        for chunk_text in simple_chunk(text):
-            documents.append(
-                {
-                    "section_id": sec_id,
-                    "page_start": page_start,
-                    "page_end": page_end,
-                    "content": chunk_text,
-                }
-            )
+        for chunk in split_into_chunks(text):
+            vec = embed_text(chunk)
+            vectors.append(vec)
 
-    print(f"[info] Total chunks to index: {len(documents)}")
+            meta_rec = {
+                "id": idx,
+                "section_id": section_id,
+                "page_start": page_start,
+                "page_end": page_end,
+                "text": chunk,
+                "n_tokens": len(chunk.split()),
+            }
+            metadata.append(meta_rec)
+            idx += 1
 
-    # Load embedding model
-    print("[info] Loading embedding model (all-MiniLM-L6-v2) ...")
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-    dim = model.get_sentence_embedding_dimension()
+    if not vectors:
+        raise RuntimeError("No vectors were created; check sections or chunking logic.")
 
-    # Compute embeddings
-    texts = [d["content"] for d in documents]
-    print("[info] Computing embeddings ...")
-    embeddings = model.encode(texts, batch_size=32, show_progress_bar=True)
-    embeddings = np.asarray(embeddings, dtype="float32")
+    mat = np.stack(vectors, axis=0).astype("float32")
+    dim = mat.shape[1]
+    print(f"[info] Built matrix with shape {mat.shape} (num_chunks x dim)")
 
-    # Build FAISS index
-    print("[info] Building FAISS index ...")
-    index = faiss.IndexFlatL2(dim)
-    index.add(embeddings)
-
-    INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+    # Because we normalized embeddings in embeddings.py, we can use inner product
+    index = faiss.IndexFlatIP(dim)
+    index.add(mat)
     faiss.write_index(index, str(INDEX_PATH))
-    print(f"[✓] Saved FAISS index → {INDEX_PATH}")
+    print(f"[✓] Wrote FAISS index → {INDEX_PATH}")
 
-    # Save metadata
     with open(META_PATH, "w", encoding="utf-8") as f:
-        for doc in documents:
-            f.write(json.dumps(doc, ensure_ascii=False) + "\n")
-    print(f"[✓] Saved metadata → {META_PATH}")
-    print("[done] Index build complete.")
+        for rec in metadata:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    print(f"[✓] Wrote metadata ({len(metadata)} records) → {META_PATH}")
 
 
 if __name__ == "__main__":
-    build_index()
+    main()
+

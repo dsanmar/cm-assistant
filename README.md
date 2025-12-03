@@ -15,10 +15,14 @@ project/
  │    ├─ spec_metadata.jsonl
  │    └─ spec_index.faiss
  ├─ src/
- │    ├─ parse_pdf.py
- │    ├─ extract_sections.py
- │    ├─ build_index.py
+ │    ├─ app.py
+ │    ├─ build_index.py  
  │    ├─ chat_cli.py
+ │    ├─ embeddings.py     
+ │    ├─ extract_sections.py
+ │    ├─ llm_groq.py
+ │    ├─ parse_pdf.py
+ │    ├─ rag_pipeline.py
  ├─ requirements.txt
  └─ README.md
  └── .gitignore
@@ -31,13 +35,13 @@ project/
 pip install -r requirements.txt
 ```
 
-### 2. Start Ollama
+### 2. Ensure Groq key is visible
 ```bash
-brew services start ollama
-ollama pull llama3.1
+source ~/.zshrc
+echo $GROQ_API_KEY
 ```
 
-### 3. Build the RAG pipeline
+### 3. Build the pipeline
 ```bash
 cd src
 python parse_pdf.py
@@ -45,7 +49,12 @@ python extract_sections.py
 python build_index.py
 ```
 
-### 4. Start the chatbot
+### 4. Test CLI (Optional)
 ```bash
 python chat_cli.py
+```
+
+### 5. Run Streamlit
+```bash
+python streamlit run app.py
 ```
